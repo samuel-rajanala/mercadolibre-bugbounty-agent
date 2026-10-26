@@ -1,97 +1,48 @@
 # Mercado Libre Bug Bounty Research Agent
 
-## Project Status: Initial Setup
+An offline-first security research workspace for organizing public-source research, scope evidence, authorization decisions, and security assessment preparation for the Mercado Libre HackerOne program.
 
-This is an AI-assisted security research environment for the Mercado Libre HackerOne bug bounty program.
+## Current safety status
 
-## Current Status
+**Authorization gate: DISABLED. Production testing: DISABLED.**
 
-### Policy Information Retrieval
-I attempted to retrieve the official Mercado Libre HackerOne program policy from:
-- https://hackerone.com/mercadolibre
-- https://hackerone.com/mercadolibre/policy_scopes
+The checked-in scope and authorization material is research context, not a substitute for checking the live program policy and obtaining explicit permission for a specific asset, activity, technique, and environment. No active testing is authorized by this repository.
 
-**What I was able to retrieve:**
-- Basic program identification: "MercadoLibre Bug Bounty Program | HackerOne"
-- Program description: "The MercadoLibre Bug Bounty Program enlists the help of the hacker community at HackerOne to make MercadoLibre more secure. HackerOne is the #1 hacker-powered security platform, helping organizations find and fix critical vulnerabilities before they can be criminally exploited."
+- Confirmed vulnerabilities recorded: 0
+- Hypotheses and research leads are tracked separately from confirmed findings.
+- Do not perform active scanning, exploitation, credential testing, payment/transaction testing, or other prohibited activity.
+- Do not enable the authorization gate using placeholder keys or inferred policy.
 
-**What I could not retrieve:**
-- Detailed scope information (in-scope/out-of-scope assets)
-- Bounty-eligible vs non-bounty-eligible assets
-- Explicitly excluded assets
-- Wildcard domain rules
-- Mobile application scope
-- Vulnerability categories accepted/excluded
-- Testing restrictions
-- Rate limits and automation restrictions
-- Account requirements
-- Disclosure requirements
-- Reward structure
-- Duplicate-report policy
-- Special conditions and program-specific requirements
+## Main components
 
-**Reason:** The HackerOne platform loads its policy content dynamically via JavaScript, which cannot be executed in this environment to extract the detailed policy information.
+- `scripts/authorization_gate.py`: fail-closed authorization decision logic, provenance verification, and decision logging.
+- `scripts/scope-checker.py`: scope data validation.
+- `scripts/*assessment.py`: assessment preparation and research utilities.
+- `scripts/safe_http.py`: HTTP helper that surfaces redirects without automatically following them.
+- `scopes/`: imported scope and policy research material.
+- `research/`: hypotheses, evidence, and investigation notes.
+- `reports/`: audit and remediation reports.
+- `tests/`: offline regression tests.
 
-### What I Need From You
-To proceed with building a proper security research agent, I need you to provide the Mercado Libre HackerOne program policy information. Please share:
+## Security notes
 
-1. The complete scope information from the policy page
-2. Any additional program rules, reward structures, or testing restrictions
-3. Or alternatively, you can guide me on how to proceed with the information I have
+The gate now requires actual Ed25519 verification for authorization and human-approval records. The public keys currently checked into the gate configuration are placeholders, not trusted program keys. Replace them only with keys obtained and verified through an independently trusted process. Keep the gate disabled until the policy, scope, key ownership, authorization records, and operational controls have all been independently verified.
 
-Once you provide the policy information, I will:
-- Save it to `scopes/mercadolibre-scope.json` and `scopes/program-policy.md`
-- Continue building the security environment as specified
-- Create all the specialized skills and workflows
-- Set up the scope validation component
-- Begin reconnaissance on authorized assets
+HTTP redirect handling is explicit. The assessment clients use a no-follow opener and must re-check every redirect target before continuing. HTTPS-to-HTTP downgrades are rejected.
 
-## Project Structure Created
-```
-mercadolibre-bugbounty-agent/
-├── README.md
-├── scopes/
-│   ├── mercadolibre-scope.json (to be filled with policy)
-│   └── program-policy.md (to be filled with policy)
-├── scripts/
-├── evidence/
-├── reports/
-├── findings/
-├── logs/
-└── .claude/
-    └── skills/
-        ├── program-intelligence/
-        │   └── SKILL.md (template)
-        ├── scope-validator/
-        │   └── SKILL.md (template)
-        ├── reconnaissance/
-        │   └── SKILL.md (template)
-        ├── api-security/
-        │   └── SKILL.md (template)
-        ├── authentication-audit/
-        │   └── SKILL.md (template)
-        ├── authorization-audit/
-        │   └── SKILL.md (template)
-        ├── payment-security/
-        │   └── SKILL.md (template)
-        ├── vulnerability-validation/
-        │   └── SKILL.md (template)
-        ├── remediation/
-        │   └── SKILL.md (template)
-        └── report-generator/
-            └── SKILL.md (template)
+## Setup and offline tests
+
+```powershell
+python -m pip install -r requirements.txt
+python -m pytest -q tests/test_phase_2_9_security_remediation.py tests/test_safe_http.py
+python -m py_compile scripts/authorization_gate.py scripts/safe_http.py scripts/api-security-assessment.py scripts/auth-audit-assessment.py scripts/authz-audit-assessment.py scripts/payment-security-assessment.py scripts/passive-reconnaissance.py
 ```
 
-## Next Steps
-Once you provide the policy information, I will:
-1. Save the verified policy to the scopes/ directory
-2. Begin populating each skill with practical instructions, workflows, and safety requirements
-3. Create the scope validation script
-4. Set up passive reconnaissance workflows
-5. Create specialized research workflows for authentication, authorization, API security, payment security, injection vulnerabilities, and business logic
-6. Implement vulnerability validation and severity assessment components
-7. Set up automated report generation (requiring your approval before submission)
-8. Build the remediation engine
-9. Create the final dashboard
+The offline redirect test uses a local loopback HTTP server only. No external target is contacted.
 
-Please provide the Mercado Libre HackerOne program policy information so I can proceed with building a complete, authorized security research agent.
+## Limitations
+
+- The repository's historical tests include legacy assumptions that accepted placeholder signatures; they need to be migrated to real ephemeral Ed25519 keys or negative assertions.
+- The current configured public keys are placeholders.
+- The current gate configuration remains DISABLED.
+- This repository is a research and preparation tool, not a production-ready autonomous testing agent.

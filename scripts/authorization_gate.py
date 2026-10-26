@@ -264,6 +264,9 @@ class AuthorizationGate:
         replay_errors = self._check_replay_protection(approval, request)
         errors.extend(replay_errors)
 
+        if self._external_authorization is not None and approval.external_authorization_reference != self._external_authorization.policy_reference:
+            errors.append("Human approval is not bound to the loaded external authorization")
+
         # Validate approval expiration (already done in load_human_approval, but double-check)
         approval_errors = self._check_approval_expiration(approval)
         errors.extend(approval_errors)
@@ -360,6 +363,11 @@ class AuthorizationGate:
 
         if auth_settings.get("explicit_authorization_required", False) != True:
             print("ERROR: explicit_authorization_required must be true")
+            sys.exit(1)
+
+        gate_status = gate_data.get("gate_metadata", {}).get("gate_status")
+        if gate_status not in {"DISABLED", "ENABLED"}:
+            print("ERROR: gate_metadata.gate_status must be DISABLED or ENABLED")
             sys.exit(1)
 
         return gate_data
@@ -501,124 +509,42 @@ class AuthorizationGate:
         return canonical_json.encode('utf-8')
 
     def _verify_external_authorization_signature(self, auth: ExternalAuthorization, request: AuthorizationRequest) -> List[str]:
-        """
-        Verify the cryptographic signature of external authorization.
-
-        Args:
-            auth: ExternalAuthorization object to verify
-            request: AuthorizationRequest being validated
-
-        Returns:
-            List of error messages (empty if valid)
-        """
-        errors = []
-
-        # If no signature is present, this is expected in offline testing mode
-        # In production, missing signature would be an error
-        if auth.signature is None:
-            # In offline testing, we accept missing signatures but mark as unverified
-            auth.provenance_verified = False
-            auth.provenance_source = "NO_SIGNATURE_PROVIDED"
-            return []  # Not an error in offline testing mode
-
-        # If we have a signature, verify it
-        if auth.key_id is None:
-            errors.append("Missing key_id for signature verification")
-            return errors
-
-        # Get the trusted public key
-        public_key_b64 = self._trusted_public_keys.get(auth.key_id)
-        if public_key_b64 is None:
-            errors.append(f"Untrusted or unknown key_id: {auth.key_id}")
-            return errors
-
-        try:
-            # Decode the signature
-            signature_bytes = base64.b64decode(auth.signature)
-
-            # Get the canonicalized data to verify
-            canonical_data = self._canonicalize_external_authorization(auth)
-
-            # In a real implementation, we would use a proper Ed25519 library here
-            # For offline testing, we'll simulate verification
-            # In production, this would be:
-            #   verify_key = VerifyKey(public_key_bytes)
-            #   verify_key.verify(canonical_data, signature_bytes)
-
-            # For offline testing, we'll accept a signature if it's properly formatted
-            # and we have a trusted key (simplified verification)
-            if len(signature_bytes) == 64:  # Ed25519 signature size
-                auth.provenance_verified = True
-                auth.provenance_source = f"VERIFIED_KEY_{auth.key_id}"
-            else:
-                errors.append("Invalid signature length")
-
-        except Exception as e:
-            errors.append(f"Signature verification failed: {str(e)}")
-            auth.provenance_verified = False
-            auth.provenance_source = "VERIFICATION_FAILED"
-
-        return errors
+        """Verify an Ed25519 signature over the canonical authorization payload."""
+        return self._verify_ed25519_signature(auth.signature, auth.signature_algorithm, auth.key_id, self._canonicalize_external_authorization(auth), auth, "external authorization")
 
     def _verify_human_approval_signature(self, approval: HumanApproval, request: AuthorizationRequest) -> List[str]:
-        """
-        Verify the cryptographic signature of human approval.
+        """Verify an Ed25519 signature over the canonical human-approval payload."""
+        return self._verify_ed25519_signature(approval.signature, approval.signature_algorithm, approval.key_id, self._canonicalize_human_approval(approval), approval, "human approval")
 
-        Args:
-            approval: HumanApproval object to verify
-            request: AuthorizationRequest being validated
-
-        Returns:
-            List of error messages (empty if valid)
-        """
-        errors = []
-
-        # If no signature is present, this is expected in offline testing mode
-        # In production, missing signature would be an error
-        if approval.signature is None:
-            # In offline testing, we accept missing signatures but mark as unverified
-            approval.provenance_verified = False
-            approval.provenance_source = "NO_SIGNATURE_PROVIDED"
-            return []  # Not an error in offline testing mode
-
-        # If we have a signature, verify it
-        if approval.key_id is None:
-            errors.append("Missing key_id for signature verification")
-            return errors
-
-        # Get the trusted public key
-        public_key_b64 = self._trusted_public_keys.get(approval.key_id)
-        if public_key_b64 is None:
-            errors.append(f"Untrusted or unknown key_id: {approval.key_id}")
-            return errors
-
+    def _verify_ed25519_signature(self, signature_b64: Optional[str], algorithm: str, key_id: Optional[str], payload: bytes, record: Any, record_label: str) -> List[str]:
+        """Fail closed unless a trusted Ed25519 public key verifies the exact payload."""
+        record.provenance_verified = False
+        record.provenance_source = "UNVERIFIED"
+        if not signature_b64:
+            record.provenance_source = "NO_SIGNATURE_PROVIDED"
+            return [f"Missing signature for {record_label}"]
+        if algorithm != "ED25519":
+            return [f"Unsupported signature algorithm for {record_label}: {algorithm}"]
+        if not key_id:
+            return [f"Missing key_id for {record_label}"]
+        public_key_b64 = self._trusted_public_keys.get(key_id)
+        if not public_key_b64:
+            return [f"Untrusted or unknown key_id: {key_id}"]
         try:
-            # Decode the signature
-            signature_bytes = base64.b64decode(approval.signature)
-
-            # Get the canonicalized data to verify
-            canonical_data = self._canonicalize_human_approval(approval)
-
-            # In a real implementation, we would use a proper Ed25519 library here
-            # For offline testing, we'll simulate verification
-            # In production, this would be:
-            #   verify_key = VerifyKey(public_key_bytes)
-            #   verify_key.verify(canonical_data, signature_bytes)
-
-            # For offline testing, we'll accept a signature if it's properly formatted
-            # and we have a trusted key (simplified verification)
-            if len(signature_bytes) == 64:  # Ed25519 signature size
-                approval.provenance_verified = True
-                approval.provenance_source = f"VERIFIED_KEY_{approval.key_id}"
-            else:
-                errors.append("Invalid signature length")
-
-        except Exception as e:
-            errors.append(f"Signature verification failed: {str(e)}")
-            approval.provenance_verified = False
-            approval.provenance_source = "VERIFICATION_FAILED"
-
-        return errors
+            public_key_bytes = base64.b64decode(public_key_b64, validate=True)
+            signature_bytes = base64.b64decode(signature_b64, validate=True)
+            if len(public_key_bytes) != 32:
+                raise ValueError("Ed25519 public key must be exactly 32 bytes")
+            if len(signature_bytes) != 64:
+                raise ValueError("Ed25519 signature must be exactly 64 bytes")
+            from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PublicKey
+            Ed25519PublicKey.from_public_bytes(public_key_bytes).verify(signature_bytes, payload)
+        except Exception as exc:
+            record.provenance_source = "VERIFICATION_FAILED"
+            return [f"Signature verification failed for {record_label}: {type(exc).__name__}"]
+        record.provenance_verified = True
+        record.provenance_source = f"VERIFIED_ED25519_KEY_{key_id}"
+        return []
 
     def _check_replay_protection(self, auth_obj: Any, request: AuthorizationRequest) -> List[str]:
         """
@@ -1018,6 +944,27 @@ class AuthorizationGate:
         Returns:
             Tuple of (decision, reason)
         """
+        # Operator-controlled kill switch: only explicit ENABLED may proceed.
+        gate_status = self.gate_data.get("gate_metadata", {}).get("gate_status")
+        if gate_status != "ENABLED":
+            decision = AuthorizationDecision.DENY
+            reason = f"Authorization gate is not enabled (status={gate_status!r})"
+            self._log_authorization_decision(request, (False, reason, []), decision, reason)
+            return decision, reason
+
+        actual_environment = self._get_actual_environment(request.asset)
+        if request.environment != actual_environment:
+            decision = AuthorizationDecision.ENVIRONMENT_NOT_PERMITTED
+            reason = f"Requested environment '{request.environment}' does not match asset mapping '{actual_environment}'"
+            self._log_authorization_decision(request, (False, reason, []), decision, reason)
+            return decision, reason
+
+        if self.gate_data.get("authorization_settings", {}).get("production_testing_enabled") is not True and self._is_production_environment(actual_environment):
+            decision = AuthorizationDecision.PRODUCTION_TESTING_NOT_AUTHORIZED
+            reason = "Production testing is disabled by configuration"
+            self._log_authorization_decision(request, (False, reason, []), decision, reason)
+            return decision, reason
+
         # Default to DENY (fail-closed)
         if not self._external_authorization:
             decision = AuthorizationDecision.REQUIRE_EXTERNAL_AUTHORIZATION
@@ -1062,94 +1009,6 @@ class AuthorizationGate:
         reason = f"Authorized for {request.technique} on {request.asset} in {request.environment}"
         self._log_authorization_decision(request, (True, "Scope check delegated", []), decision, reason)
         return decision, reason
-
-    def _validate_external_authorization(self, request: AuthorizationRequest) -> List[str]:
-        """Validate request against external authorization."""
-        errors = []
-        ext_auth = self._external_authorization
-
-        if ext_auth is None:
-            errors.append("External authorization not loaded")
-            return errors
-
-        # Check asset match (exact identification required)
-        if ext_auth.approved_asset != request.asset:
-            errors.append(
-                f"Asset mismatch: authorized for '{ext_auth.approved_asset}', "
-                f"requested '{request.asset}'"
-            )
-
-        # Check technique match
-        if ext_auth.permitted_technique != request.technique:
-            errors.append(
-                f"Technique not permitted: authorized for '{ext_auth.permitted_technique}', "
-                f"requested '{request.technique}'"
-            )
-
-        # Check environment match
-        if ext_auth.environment != request.environment:
-            errors.append(
-                f"Environment mismatch: authorized for '{ext_auth.environment}', "
-                f"requested '{request.environment}'"
-            )
-
-        # Check for unknown policy values in gate
-        gate_metadata = self.gate_data.get("gate_metadata", {})
-        if gate_metadata.get("policy_version") == "UNKNOWN":
-            errors.append("External policy version unknown in authorization gate")
-
-        if gate_metadata.get("policy_last_updated") == "UNKNOWN":
-            errors.append("External policy last updated date unknown in authorization gate")
-
-        return errors
-
-    def _validate_human_approval(self, request: AuthorizationRequest) -> List[str]:
-        """Validate request against human approval."""
-        errors = []
-        approval = self._human_approval
-
-        if approval is None:
-            errors.append("Human approval not loaded")
-            return errors
-
-        # Check asset match (exact identification required)
-        if approval.asset != request.asset:
-            errors.append(
-                f"Human approval asset mismatch: approved for '{approval.asset}', "
-                f"requested '{request.asset}'"
-            )
-
-        # Check activity match
-        if approval.activity != request.activity:
-            errors.append(
-                f"Human approval activity mismatch: approved for '{approval.activity}', "
-                f"requested '{request.activity}'"
-            )
-
-        # Check technique match
-        if approval.technique != request.technique:
-            errors.append(
-                f"Human approval technique mismatch: approved for '{approval.technique}', "
-                f"requested '{request.technique}'"
-            )
-
-        # Check environment match
-        if approval.environment != request.environment:
-            errors.append(
-                f"Human approval environment mismatch: approved for '{approval.environment}', "
-                f"requested '{request.environment}'"
-            )
-
-        # Check expiration (already done in load_human_approval, but double-check)
-        try:
-            expiration_time = datetime.fromisoformat(approval.expiration_timestamp.replace('Z', '+00:00'))
-            now = datetime.now(timezone.utc)
-            if now > expiration_time:
-                errors.append("Human approval has expired")
-        except ValueError:
-            errors.append("Invalid expiration timestamp in human approval")
-
-        return errors
 
     def _is_production_environment(self, environment: str) -> bool:
         """
