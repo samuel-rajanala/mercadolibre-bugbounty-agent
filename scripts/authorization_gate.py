@@ -264,6 +264,9 @@ class AuthorizationGate:
         replay_errors = self._check_replay_protection(approval, request)
         errors.extend(replay_errors)
 
+        if self._external_authorization is not None and approval.external_authorization_reference != self._external_authorization.policy_reference:
+            errors.append("Human approval is not bound to the loaded external authorization")
+
         # Validate approval expiration (already done in load_human_approval, but double-check)
         approval_errors = self._check_approval_expiration(approval)
         errors.extend(approval_errors)
@@ -949,7 +952,14 @@ class AuthorizationGate:
             self._log_authorization_decision(request, (False, reason, []), decision, reason)
             return decision, reason
 
-        if self.gate_data.get("authorization_settings", {}).get("production_testing_enabled") is not True and self._is_production_environment(request.environment):
+        actual_environment = self._get_actual_environment(request.asset)
+        if request.environment != actual_environment:
+            decision = AuthorizationDecision.ENVIRONMENT_NOT_PERMITTED
+            reason = f"Requested environment '{request.environment}' does not match asset mapping '{actual_environment}'"
+            self._log_authorization_decision(request, (False, reason, []), decision, reason)
+            return decision, reason
+
+        if self.gate_data.get("authorization_settings", {}).get("production_testing_enabled") is not True and self._is_production_environment(actual_environment):
             decision = AuthorizationDecision.PRODUCTION_TESTING_NOT_AUTHORIZED
             reason = "Production testing is disabled by configuration"
             self._log_authorization_decision(request, (False, reason, []), decision, reason)
