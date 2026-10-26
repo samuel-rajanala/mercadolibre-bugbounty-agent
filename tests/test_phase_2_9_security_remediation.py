@@ -59,3 +59,12 @@ def test_malformed_public_key_is_rejected():
     sig = base64.b64encode(b"x" * 64).decode("ascii")
     assert gate._verify_ed25519_signature(sig, "ED25519", "bad", b"payload", record, "test authorization")
     assert not record.provenance_verified
+
+def test_request_cannot_label_a_production_asset_as_sandbox():
+    gate = _bare_gate("ENABLED")
+    gate._get_actual_environment = lambda asset: "PRODUCTION"
+    gate._is_production_environment = lambda env: env == "PRODUCTION"
+    req = AuthorizationRequest("api.mercadolibre.com", "documentation_review", "GET", "SANDBOX")
+    decision, reason = gate.check_authorization(req)
+    assert decision is AuthorizationDecision.ENVIRONMENT_NOT_PERMITTED
+    assert "does not match asset mapping" in reason

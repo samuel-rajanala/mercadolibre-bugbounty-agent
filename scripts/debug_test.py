@@ -17,26 +17,31 @@ except ImportError:
     spec.loader.exec_module(scope_checker_module)
     ScopeChecker = scope_checker_module.ScopeChecker
 
-# Initialize scope checker with our updated scope data
-checker = ScopeChecker("../scopes/mercadolibre-scope.json")
+def main():
+    # Initialize scope checker with our updated scope data
+    checker = ScopeChecker("../scopes/mercadolibre-scope.json")
 
-# Test the failing cases
-test_cases = [
-    ("com.3mosquitos.MercadoLibre", True, True, "Apple Store App ID"),
-    ("Point Smart", True, True, "HARDWARE"),
-]
+    # Test the failing cases
+    test_cases = [
+        ("com.3mosquitos.MercadoLibre", True, True, "Apple Store App ID"),
+        ("Point Smart", True, True, "HARDWARE"),
+    ]
 
-for target, should_be_authorized, should_be_bounty, description in test_cases:
-    print(f"\nTesting: {target}")
-    print(f"Description: {description}")
-    print(f"Expected: Auth={should_be_authorized}, Bounty={should_be_bounty}")
+    for target, should_be_authorized, should_be_bounty, description in test_cases:
+        print(f"\nTesting: {target}")
+        print(f"Description: {description}")
+        print(f"Expected: Auth={should_be_authorized}, Bounty={should_be_bounty}")
 
-    result = checker.check_target(target, require_bounty_eligible=True)
-    authorized = result["authorized"]
-    bounty_eligible = result["bounty_eligible"]
+        result = checker.check_target(target, require_bounty_eligible=True)
+        authorized = result["authorized"]
+        bounty_eligible = result["bounty_eligible"]
 
-    print(f"Actual: Auth={authorized}, Bounty={bounty_eligible}")
-    print(f"Normalized target: {result['normalized_target']}")
-    print(f"Scope check: {result['scope_check']}")
-    if 'bounty_eligible_check' in result:
-        print(f"Bounty check: {result['bounty_eligible_check']}")
+        print(f"Actual: Auth={authorized}, Bounty={bounty_eligible}")
+        print(f"Normalized target: {result['normalized_target']}")
+        print(f"Scope check: {result['scope_check']}")
+        if 'bounty_eligible_check' in result:
+            print(f"Bounty check: {result['bounty_eligible_check']}")
+
+
+if __name__ == "__main__":
+    main()
