@@ -17,6 +17,7 @@ from datetime import datetime
 
 # Import authorization gate for fail-closed authorization enforcement
 from authorization_gate import AuthorizationGate, AuthorizationRequest
+from safe_http import safe_open
 
 
 class PassiveReconnaissance:
@@ -69,6 +70,7 @@ class PassiveReconnaissance:
         redirect_count = 0
         current_url = url
         original_hostname = None
+        original_scheme = None
 
         while redirect_count <= max_redirects:
             # Extract hostname from URL for authorization check
@@ -96,11 +98,11 @@ class PassiveReconnaissance:
                     print(f"  [AUTHORIZATION DENIED] {reason}")
                     return None
                 original_hostname = hostname
+                original_scheme = parsed_url.scheme
             else:
                 # For redirects, check authorization with strict rules
                 # Prevent HTTPS-to-HTTP downgrade
-                if parsed_url.scheme == 'http' and original_hostname and \
-                   original_hostname.startswith('https://'):
+                if original_scheme == 'https' and parsed_url.scheme == 'http':
                     print(f"  [REDIRECT BLOCKED] HTTPS-to-HTTP downgrade prevented: {current_url}")
                     return None
 
@@ -134,7 +136,7 @@ class PassiveReconnaissance:
                 req = urllib.request.Request(current_url, headers=request_headers)
                 self.last_request_time = time.time()
 
-                with urllib.request.urlopen(req, timeout=10) as response:
+                with safe_open(req, timeout=10) as response:
                     # Check if this is a redirect
                     status_code = response.getcode()
                     if 300 <= status_code < 400:
