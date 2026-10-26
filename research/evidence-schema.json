@@ -1,0 +1,138 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Mercado Libre Bug Bounty Evidence Schema",
+  "description": "Schema for collecting and storing passive evidence during security research",
+  "type": "object",
+  "required": ["evidence_id", "timestamp", "collector", "evidence_type", "source_description", "data"],
+  "properties": {
+    "evidence_id": {
+      "type": "string",
+      "description": "Unique identifier for this piece of evidence",
+      "pattern": "^EV-[0-9]{8}-[0-9]{6}$"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the evidence was collected"
+    },
+    "collector": {
+      "type": "string",
+      "description": "Identifier for who/what collected the evidence"
+    },
+    "evidence_type": {
+      "type": "string",
+      "description": "Type of evidence collected",
+      "enum": [
+        "PASSIVE_OBSERVATION",
+        "DOCUMENTATION_REVIEW",
+        "PUBLIC_SOURCE_ANALYSIS",
+        "TECHNOLOGY_FINGERPRINTING",
+        "JS_LIBRARY_DETECTION",
+        "SECURITY_HEADER_ANALYSIS",
+        "CERTIFICATE_TRANSPARENCY",
+        "DNS_OBSERVATION",
+        "WEB_ARCHIVE_REVIEW",
+        "NETWORK_TOPOLOGY",
+        "THIRD_PARTY_INTEGRATION",
+        "ERROR_MESSAGE_ANALYSIS",
+        "BEHAVIORAL_OBSERVATION",
+        "CONFIGURATION_DISCOVERY",
+        "METADATA_EXTRACTION"
+      ]
+    },
+    "source_description": {
+      "type": "string",
+      "description": "Description of the source (URL, document name, etc.)"
+    },
+    "source_url": {
+      "type": ["string", "null"],
+      "format": "uri",
+      "description": "URL if evidence was collected from a web source"
+    },
+    "data": {
+      "type": "object",
+      "description": "The actual evidence data collected",
+      "additionalProperties": true
+    },
+    "context": {
+      "type": "object",
+      "description": "Contextual information about the evidence collection",
+      "properties": {
+        "scope_validation": {
+          "type": "object",
+          "properties": {
+            "asset_checked": {"type": "string"},
+            "scope_record_id": {"type": "string"},
+            "authorization_verified": {"type": "boolean"},
+            "validation_method": {"type": "string"}
+          },
+          "required": ["asset_checked", "authorization_verified"]
+        },
+        "collection_method": {
+          "type": "string",
+          "description": "How the evidence was collected (manual, script, tool)"
+        },
+        "tools_used": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Tools or scripts used to collect evidence"
+        },
+        "environmental_factors": {
+          "type": "object",
+          "description": "Environmental conditions during collection",
+          "additionalProperties": true
+        },
+        "limitations": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Limitations or constraints during evidence collection"
+        }
+      }
+    },
+    "privacy_impact": {
+      "type": "object",
+      "description": "Assessment of privacy impact from evidence collection",
+      "properties": {
+        "contains_personal_data": {"type": "boolean"},
+        "contains_payment_data": {"type": "boolean"},
+        "contains_credentials": {"type": "boolean"},
+        "data_minimization_applied": {"type": "boolean"},
+        "retention_period": {"type": "string"},
+        "disposal_method": {"type": "string"}
+      }
+    },
+    "compliance": {
+      "type": "object",
+      "description": "Compliance checks for evidence collection",
+      "properties": {
+        "passive_only": {"type": "boolean"},
+        "no_active_testing": {"type": "boolean"},
+        "rate_limit_respected": {"type": "boolean"},
+        "user_agent_disclosed": {"type": "boolean"},
+        "error_handling_appropriate": {"type": "boolean"},
+        "no_sensitive_data_transmission": {"type": "boolean"},
+        "scope_boundaries_respected": {"type": "boolean"}
+      },
+      "required": ["passive_only", "no_active_testing", "scope_boundaries_respected"]
+    },
+    "tags": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Tags for categorizing and searching evidence"
+    },
+    "related_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^EV-[0-9]{8}-[0-9]{6}$"
+      },
+      "description": "IDs of related evidence pieces"
+    },
+    "validation_status": {
+      "type": "string",
+      "description": "Validation status of this evidence",
+      "enum": ["RAW", "VALIDATED", "CORROBORATED", "SUPERSEDED"],
+      "default": "RAW"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source": "same user-provided CSV export",
+  "source_url": "https://hackerone.com/mercadolibre/policy_scopes",
+  "not_eligible_for_submission": [
+    "*.kangu.com.br",
+    "developersforum",
+    "Redelcom",
+    "*.gokangu.cl",
+    "*.gokangu.co",
+    "*.gokangu.mx",
+    "*.gokangu.uy",
+    "*.kangu.tech",
+    "wow-int.mercadolibre.com"
+  ],
+  "submission_allowed_but_no_bounty": [
+    "mercadoenvios.com.ve",
+    "www.ipbooster.com",
+    "*.tucarro.com.ve",
+    "*.mercadolibre.com.ve",
+    "mercadolibreexperience.com.*"
+  ],
+  "note": "These are exact CSV identifiers. Do not generalize beyond their recorded asset types/instructions."
+}

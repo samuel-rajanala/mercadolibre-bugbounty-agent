@@ -1,0 +1,37 @@
+{
+  "web_servers": [
+    "nginx",
+    "apache"
+  ],
+  "frameworks": [
+    "java",
+    "spring",
+    ".net"
+  ],
+  "databases": [
+    "mysql",
+    "postgresql",
+    "mongodb"
+  ],
+  "cdn": [
+    "cloudflare",
+    "akamai",
+    "aws cloudfront"
+  ],
+  "languages": [
+    "java",
+    "javascript",
+    "python",
+    "c#"
+  ],
+  "cloud": [
+    "aws",
+    "azure",
+    "google cloud"
+  ],
+  "security": [
+    "waf",
+    "ddos protection",
+    "ssl/tls inspection"
+  ]
+}

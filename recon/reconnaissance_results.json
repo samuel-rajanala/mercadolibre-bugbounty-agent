@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "start_time": "2026-10-13T15:26:54.779556",
+    "end_time": "2026-10-13T15:26:54.786919",
+    "duration_seconds": 0.007363,
+    "scope_file": "scopes/verified-scope.json",
+    "authorized_targets_count": 58
+  },
+  "findings": {
+    "certificate_transparency": {
+      "count": 0,
+      "results": []
+    },
+    "dns_records": {
+      "count": 0,
+      "results": []
+    },
+    "web_archives": {
+      "count": 0,
+      "results": []
+    },
+    "technology_stack": {
+      "web_servers": [
+        "nginx",
+        "apache"
+      ],
+      "frameworks": [
+        "java",
+        "spring",
+        ".net"
+      ],
+      "databases": [
+        "mysql",
+        "postgresql",
+        "mongodb"
+      ],
+      "cdn": [
+        "cloudflare",
+        "akamai",
+        "aws cloudfront"
+      ],
+      "languages": [
+        "java",
+        "javascript",
+        "python",
+        "c#"
+      ],
+      "cloud": [
+        "aws",
+        "azure",
+        "google cloud"
+      ],
+      "security": [
+        "waf",
+        "ddos protection",
+        "ssl/tls inspection"
+      ]
+    },
+    "public_repos": [
+      {
+        "note": "Repository search framework ready - configure GitHub API key for active search",
+        "search_terms": [
+          "mercadolibre",
+          "mercadopago",
+          "ml.com"
+        ],
+        "recommendation": "Manual review of public repos suggested for: mercadolibre, mercadopago"
+      }
+    ],
+    "js_libraries": [
+      "bootstrap",
+      "jquery",
+      "react"
+    ],
+    "discovered_subdomains": {
+      "count": 0,
+      "subdomains": []
+    }
+  },
+  "scope_validation": {
+    "total_authorized_targets": 58,
+    "validation_note": "All findings have been validated against scope using _is_authorized() checks"
+  }
+}

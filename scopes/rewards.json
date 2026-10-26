@@ -1,0 +1,10 @@
+{
+  "source": "Official Mercado Libre HackerOne scope CSV export",
+  "note": "Bounty reward information is NOT AVAILABLE IN PROVIDED CSV",
+  "reward_structure": "NOT AVAILABLE IN PROVIDED CSV",
+  "bounty_amounts": "NOT AVAILABLE IN PROVIDED CSV",
+  "severity_to_payout_mapping": "NOT AVAILABLE IN PROVIDED CSV",
+  "special_bounty_programs": "NOT AVAILABLE IN PROVIDED CSV",
+  "award_timing": "NOT AVAILABLE IN PROVIDED CSV",
+  "payment_methods": "NOT AVAILABLE IN PROVIDED CSV"
+}

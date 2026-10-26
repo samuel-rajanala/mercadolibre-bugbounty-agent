@@ -1,0 +1,97 @@
+identifier,asset_type,instruction,eligible_for_bounty,eligible_for_submission,availability_requirement,confidentiality_requirement,integrity_requirement,max_severity,system_tags,created_at,updated_at
+com.mercadopago.wallet,GOOGLE_PLAY_APP_ID,"Tier 1 - Mercado Pago Android:
+https://play.google.com/store/apps/details?id=com.mercadopago.wallet",true,true,not_defined,not_defined,not_defined,critical,,2018-10-29 19:05:41 UTC,2025-01-20 15:16:05 UTC
+com.mercadopago.MercadoPago,APPLE_STORE_APP_ID,"Tier 1 - Mercado Pago iOS:
+https://itunes.apple.com/ar/app/mercado-pago-recargar-celular/id925436649",true,true,not_defined,not_defined,not_defined,critical,,2018-10-29 19:06:14 UTC,2025-01-20 15:15:45 UTC
+api.mercadopago.com,URL,Tier 1 - See documentation: https://www.mercadopago.com.ar/developers/en/reference,true,true,not_defined,not_defined,not_defined,critical,,2018-12-10 14:30:16 UTC,2025-01-20 15:19:42 UTC
+com.mercadolibre,GOOGLE_PLAY_APP_ID,Tier 1 - Mercado Libre Android: https://play.google.com/store/apps/details?id=com.mercadolibre,true,true,not_defined,not_defined,not_defined,critical,,2021-03-08 19:36:12 UTC,2025-01-20 15:15:12 UTC
+com.3mosquitos.MercadoLibre,APPLE_STORE_APP_ID,Tier 1 - Mercado Libre iOS: https://apps.apple.com/ar/app/mercado-libre/id463624852,true,true,not_defined,not_defined,not_defined,critical,,2021-03-08 19:37:52 UTC,2025-03-05 20:11:57 UTC
+api.mercadolibre.com,URL,Tier 1 - See documentation: https://developers.mercadolibre.com.ar/en_us/api-docs,true,true,not_defined,not_defined,not_defined,critical,,2021-06-16 13:06:13 UTC,2025-01-20 15:18:37 UTC
+Point Smart,HARDWARE,"Tier 1 - MLA - https://www.mercadopago.com.ar/point-smart
+Tier 1 - MLB - https://www.mercadopago.com.br/point-smart",true,true,not_defined,not_defined,not_defined,critical,,2021-12-20 15:50:23 UTC,2025-01-20 15:14:02 UTC
+com.mercadoenvios.driver,GOOGLE_PLAY_APP_ID,Tier 1 - Mercado Envíos Flex: https://play.google.com/store/apps/details?id=com.mercadoenvios.driver,true,true,not_defined,not_defined,not_defined,critical,,2021-12-22 15:57:24 UTC,2025-01-20 15:13:09 UTC
+com.mercadoenvios.crowdsourcing,GOOGLE_PLAY_APP_ID,Tier 1 - Mercado Envíos Extra: https://play.google.com/store/apps/details?id=com.mercadoenvios.crowdsourcing,true,true,not_defined,not_defined,not_defined,critical,,2021-12-22 15:58:39 UTC,2025-01-20 15:12:49 UTC
+*.kangu.com.br,WILDCARD,Kangu,false,false,,,,critical,,2024-06-17 21:08:11 UTC,2025-02-10 14:04:15 UTC
+developersforum,OTHER,"Any asset related to developersforum 
+Including but not limited to:
+https://developersforum.mercadolibre.com.ar/
+https://developersforum.mercadolibre.com.co/
+https://developersforum.mercadolibre.cl/
+https://developersforum.mercadolibre.com.mx/
+https://developersforum.mercadolibre.com.ve/",false,false,not_defined,not_defined,not_defined,none,,2024-09-18 18:09:07 UTC,2024-09-18 18:10:21 UTC
+Redelcom,OTHER,Any other asset related to redelcom,false,false,not_defined,not_defined,not_defined,none,,2024-09-18 18:12:32 UTC,2025-01-20 15:37:19 UTC
+Crypto,OTHER,"- www.mercadopago.com.mx/crypto/*
+- www.mercadopago.cl/crypto/*
+- www.mercadopago.com.br/crypto/*",true,true,,,,critical,,2025-01-14 14:41:17 UTC,2025-01-14 14:42:09 UTC
+*.adminml.com,WILDCARD,Tier 1,true,true,,,,critical,,2025-01-20 15:10:15 UTC,2025-01-20 15:11:07 UTC
+*.mercadolibre.cl,WILDCARD,Tier 1,true,true,,,,critical,,2025-01-20 15:10:15 UTC,2026-10-05 23:07:03 UTC
+*.mercadolibre.com,WILDCARD,Tier 1,true,true,,,,critical,,2025-01-20 15:10:15 UTC,2025-01-20 15:11:07 UTC
+*.mercadolibre.com.ar,WILDCARD,Tier 1,true,true,,,,critical,,2025-01-20 15:10:15 UTC,2026-10-12 04:00:51 UTC
+*.mercadolibre.com.co,WILDCARD,Tier 1,true,true,,,,critical,,2025-01-20 15:10:15 UTC,2026-10-05 23:07:03 UTC
+*.mercadolibre.com.mx,WILDCARD,Tier 1,true,true,,,,critical,,2025-01-20 15:10:15 UTC,2026-10-05 23:07:02 UTC
+*.mercadolibre.com.pe,WILDCARD,Tier 1,true,true,,,,critical,,2025-01-20 15:10:15 UTC,2025-01-20 15:11:07 UTC
+*.mercadolibre.com.uy,WILDCARD,Tier 1,true,true,,,,critical,,2025-01-20 15:10:15 UTC,2026-10-05 23:07:02 UTC
+*.mercadolivre.com.br,WILDCARD,Tier 1,true,true,,,,critical,,2025-01-20 15:10:15 UTC,2026-10-05 23:07:02 UTC
+*.mercadopago.cl,WILDCARD,Tier 1,true,true,,,,critical,,2025-01-20 15:10:15 UTC,2025-01-20 15:11:07 UTC
+*.mercadopago.com,WILDCARD,Tier 1,true,true,,,,critical,,2025-01-20 15:10:15 UTC,2025-01-20 15:11:07 UTC
+*.mercadopago.com.ar,WILDCARD,Tier 1,true,true,,,,critical,,2025-01-20 15:10:15 UTC,2025-01-20 15:11:07 UTC
+*.mercadopago.com.br,WILDCARD,Tier 1,true,true,,,,critical,,2025-01-20 15:10:15 UTC,2025-04-08 21:29:13 UTC
+*.mercadopago.com.co,WILDCARD,Tier 1,true,true,,,,critical,,2025-01-20 15:10:15 UTC,2025-01-20 15:11:07 UTC
+*.mercadopago.com.mx,WILDCARD,Tier 1,true,true,,,,critical,,2025-01-20 15:10:16 UTC,2025-01-20 15:11:07 UTC
+*.mercadopago.com.pe,WILDCARD,Tier 1,true,true,,,,critical,,2025-01-20 15:10:16 UTC,2025-01-20 15:11:07 UTC
+*.mercadopago.com.uy,WILDCARD,Tier 1,true,true,,,,critical,,2025-01-20 15:10:16 UTC,2025-01-20 15:11:07 UTC
+*.gokangu.cl,WILDCARD,Kangu,false,false,,,,critical,,2025-01-20 15:28:37 UTC,2025-02-10 14:04:15 UTC
+*.gokangu.co,WILDCARD,Kangu,false,false,,,,critical,,2025-01-20 15:28:37 UTC,2025-02-10 14:04:15 UTC
+*.gokangu.mx,WILDCARD,Kangu,false,false,,,,critical,,2025-01-20 15:28:37 UTC,2025-02-10 14:04:15 UTC
+*.gokangu.uy,WILDCARD,Kangu,false,false,,,,critical,,2025-01-20 15:28:37 UTC,2025-02-10 14:04:15 UTC
+*.kangu.tech,WILDCARD,Kangu,false,false,,,,critical,,2025-01-20 15:28:37 UTC,2025-02-10 14:04:15 UTC
+*.mlstatic.com,WILDCARD,Tier 2,true,true,,,,critical,,2025-01-20 15:28:38 UTC,2025-01-20 15:31:04 UTC
+logistica.redelcom.cl,URL,Tier 2,true,true,,,,critical,,2025-01-20 15:28:38 UTC,2025-01-20 15:31:04 UTC
+www.mercadolibre.co.cr,URL,Tier 2,true,true,,,,critical,,2025-01-20 15:28:38 UTC,2025-01-20 15:31:04 UTC
+www.mercadolibre.com.bo,URL,Tier 2,true,true,,,,critical,,2025-01-20 15:28:38 UTC,2025-01-20 15:31:04 UTC
+www.mercadolibre.com.do,URL,Tier 2,true,true,,,,critical,,2025-01-20 15:28:38 UTC,2025-01-20 15:31:04 UTC
+www.mercadolibre.com.ec,URL,Tier 2,true,true,,,,critical,,2025-01-20 15:28:38 UTC,2025-01-20 15:31:04 UTC
+www.mercadolibre.com.gt,URL,Tier 2,true,true,,,,critical,,2025-01-20 15:28:38 UTC,2025-01-20 15:31:04 UTC
+www.mercadolibre.com.hn,URL,Tier 2,true,true,,,,critical,,2025-01-20 15:28:38 UTC,2025-01-20 15:31:04 UTC
+www.mercadolibre.com.ni,URL,Tier 2,true,true,,,,critical,,2025-01-20 15:28:38 UTC,2025-01-20 15:31:04 UTC
+www.mercadolibre.com.pa,URL,Tier 2,true,true,,,,critical,,2025-01-20 15:28:38 UTC,2025-01-20 15:31:04 UTC
+www.mercadolibre.com.py,URL,Tier 2,true,true,,,,critical,,2025-01-20 15:28:38 UTC,2025-01-20 15:31:04 UTC
+www.mercadolibre.com.sv,URL,Tier 2,true,true,,,,critical,,2025-01-20 15:28:38 UTC,2025-01-20 15:31:04 UTC
+www.mercadolivre.com,URL,Tier 2,true,true,,,,critical,,2025-01-20 15:28:40 UTC,2025-01-20 15:31:04 UTC
+www.mercadopago.com.ec,URL,Tier 2,true,true,,,,critical,,2025-01-20 15:28:40 UTC,2025-01-20 15:31:04 UTC
+com.mercadoenvios.logistics,GOOGLE_PLAY_APP_ID,Tier 1 - Mercado Envíos Logistics: https://play.google.com/store/apps/details?id=com.mercadoenvios.logistics,true,true,,,,critical,,2025-03-05 19:50:43 UTC,2025-03-05 20:05:21 UTC
+Leaked Credentials,OTHER,Select this asset for issues related to credentials from public sources,true,true,,,,high,,2025-03-05 19:51:07 UTC,2025-03-05 20:16:32 UTC
+wow-int.mercadolibre.com,URL,,false,false,,,,critical,,2025-04-16 21:01:44 UTC,2025-04-16 21:01:44 UTC
+biolibre.ar,URL,Tier 2,true,true,,,,critical,,2025-05-06 17:33:32 UTC,2025-05-06 17:33:32 UTC
+biolibre.cl,URL,Tier 2,true,true,,,,critical,,2025-05-06 17:34:51 UTC,2025-05-06 17:34:51 UTC
+biolibre.co,URL,Tier 2,true,true,,,,critical,,2025-05-06 17:35:02 UTC,2025-05-06 17:35:02 UTC
+biolibre.mx,URL,Tier 2,true,true,,,,critical,,2025-05-06 17:35:22 UTC,2025-05-06 17:35:22 UTC
+biolivre.com.br,URL,Tier 2,true,true,,,,critical,,2025-05-06 17:35:33 UTC,2025-05-06 17:35:33 UTC
+meliplay.com.ar,URL,Tier 2,true,true,,,,critical,,2025-05-06 17:35:56 UTC,2025-05-06 17:35:56 UTC
+meliplay.com.pe,URL,Tier 2,true,true,,,,critical,,2025-05-06 17:36:14 UTC,2025-05-06 17:36:14 UTC
+meliplay.com.uy,URL,Tier 2,true,true,,,,critical,,2025-05-06 17:36:28 UTC,2025-05-06 17:36:28 UTC
+mercadoplay.co,URL,Tier 2,true,true,,,,critical,,2025-05-06 17:36:53 UTC,2025-05-06 17:36:53 UTC
+mercadoplay.com.pe,URL,Tier 2,true,true,,,,critical,,2025-05-06 17:37:10 UTC,2025-05-06 17:37:10 UTC
+mercadoplay.com.uy,URL,Tier 2,true,true,,,,critical,,2025-05-06 17:37:25 UTC,2025-05-06 17:37:25 UTC
+mercadoplay.pe,URL,Tier 2,true,true,,,,critical,,2025-05-06 17:37:38 UTC,2025-05-06 17:37:38 UTC
+mercadoplay.uy,URL,Tier 2,true,true,,,,critical,,2025-05-06 17:37:54 UTC,2025-05-06 17:37:54 UTC
+portalinmobiliario.cl,URL,Tier 2,true,true,,,,critical,,2025-05-06 17:38:05 UTC,2025-05-06 17:38:05 UTC
+portalinmobiliario.com,URL,Tier 2,true,true,,,,critical,,2025-05-06 17:38:19 UTC,2025-05-06 17:38:19 UTC
+tucarro.com,URL,Tier 2,true,true,,,,critical,,2025-05-06 17:38:33 UTC,2025-05-06 17:38:33 UTC
+tucarro.com.co,URL,Tier 2,true,true,,,,critical,,2025-05-06 17:38:47 UTC,2025-05-06 17:38:47 UTC
+tumoto.com,URL,Tier 2,true,true,,,,critical,,2025-05-06 17:39:00 UTC,2025-05-06 17:39:00 UTC
+com.mercadolibre.android.mplay_tv,GOOGLE_PLAY_APP_ID,Tier 2,true,true,,,,critical,,2025-05-08 15:04:14 UTC,2025-05-08 15:04:14 UTC
+furycloud.io,URL,Tier 2 - Exposed in ZT,true,true,,,,critical,,2025-08-01 13:38:20 UTC,2025-08-01 13:38:20 UTC
+furydocs.io,URL,Tier 2 - Exposed in ZT,true,true,,,,critical,,2025-08-01 13:38:39 UTC,2025-08-01 13:38:39 UTC
+sustentabilidadmercadolibre.com/,URL,Tier 2,true,true,,,,critical,,2025-08-01 13:39:31 UTC,2025-08-12 15:56:07 UTC
+Tier 3,OTHER,,true,true,,,,critical,,2026-05-07 17:13:51 UTC,2026-05-07 17:13:51 UTC
+mercadoenvios.com.ve,URL,Tier 2,false,true,,,,critical,,2026-06-11 10:22:06 UTC,2026-06-24 17:36:45 UTC
+mercadopago.com.ve,URL,Tier 2,true,true,,,,critical,,2026-06-11 10:22:06 UTC,2026-06-11 10:22:46 UTC
+mpago.li,URL,Tier 2,true,true,,,,critical,,2026-06-11 10:22:06 UTC,2026-06-11 10:23:04 UTC
+mpago.la,URL,Tier 2,true,true,,,,critical,,2026-06-11 10:22:06 UTC,2026-06-11 10:23:10 UTC
+mercadobackoffice.com,URL,Tier 2,true,true,,,,critical,,2026-06-11 10:22:06 UTC,2026-06-11 10:23:22 UTC
+www.ipbooster.com,URL,"",false,true,,,,critical,,2026-09-07 14:53:03 UTC,2026-09-07 14:53:03 UTC
+*.tucarro.com.ve,WILDCARD,"",false,true,,,,critical,,2026-09-07 14:53:30 UTC,2026-09-07 14:53:30 UTC
+*.mercadolibre.com.ve,WILDCARD,"",false,true,,,,critical,,2026-09-07 14:54:13 UTC,2026-09-07 14:54:13 UTC
+mercadolibreexperience.com.*,WILDCARD,Tier 2,false,true,,,,critical,,2026-09-14 12:49:54 UTC,2026-09-14 12:50:24 UTC
+Wonder,OTHER,,true,true,,,,critical,,2026-10-01 18:18:11 UTC,2026-10-01 18:20:12 UTC

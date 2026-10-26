@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "start_time": "2026-10-14T11:10:35.382330",
+    "end_time": "2026-10-14T11:10:35.388867",
+    "duration_seconds": 0.006537,
+    "assessment_type": "initial_passive_authz_audit_assessment",
+    "scope_file": "scopes/verified-scope.json"
+  },
+  "authz_endpoint_inventory": {
+    "total_authorized_authz_endpoints": 1,
+    "inventoried_authz_endpoints": 1,
+    "endpoints": [
+      {
+        "endpoint": "sustentabilidadmercadolibre.com/",
+        "endpoint_type": "api_endpoint",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "inventory_time": "2026-10-14T11:10:35.382330",
+        "suspected_authz_type": "General Authorization",
+        "potential_idor_patterns": []
+      }
+    ]
+  },
+  "documentation_review": {
+    "sites_checked": 0,
+    "accessible_sites": 0,
+    "references": []
+  },
+  "endpoint_probing": {
+    "endpoints_tested": 1,
+    "responsive_endpoints": [],
+    "authz_patterns_found": {},
+    "potential_idor_endpoints": [],
+    "parameter_indicators": {},
+    "security_headers": {},
+    "http_methods_indicators": {}
+  },
+  "findings_summary": {
+    "total_authz_endpoints_discovered": 1,
+    "documentation_sites_found": 0,
+    "responsive_endpoints": 0,
+    "potential_idor_endpoints": 0,
+    "assessment_complete": true
+  },
+  "next_steps_recommendations": [
+    "Review discovered authz endpoints for authorization patterns",
+    "Check public documentation for authorization specifications",
+    "Consider authorized active testing with proper test accounts (explicitly provided)",
+    "Validate findings through scope checker before any active testing",
+    "Proceed to payment security testing if authorized"
+  ]
+}

@@ -1,0 +1,11 @@
+api.mercadopago.com | scope_validation | AUTHORIZED | Mercado Pago Integration
+www.mercadopago.com.ec | scope_validation | AUTHORIZED | Mercado Pago Integration
+mercadopago.com.ve | scope_validation | AUTHORIZED | Mercado Pago Integration
+mpago.li | scope_validation | AUTHORIZED | Mercado Pago Integration
+mpago.la | scope_validation | AUTHORIZED | Mercado Pago Integration
+api.test.mercadopago.com | sandbox_preparation | SANDBOX CANDIDATE | Mercado Pago Integration
+test.mercadopago.com.ve | sandbox_preparation | SANDBOX CANDIDATE | Mercado Pago Integration
+www.test.mercadopago.com.ec | sandbox_preparation | SANDBOX CANDIDATE | Mercado Pago Integration
+api.sandbox.mercadopago.com | sandbox_preparation | SANDBOX CANDIDATE | Mercado Pago Integration
+www.sandbox.mercadopago.com.ec | sandbox_preparation | SANDBOX CANDIDATE | Mercado Pago Integration
+sandbox.mercadopago.com.ve | sandbox_preparation | SANDBOX CANDIDATE | Mercado Pago Integration

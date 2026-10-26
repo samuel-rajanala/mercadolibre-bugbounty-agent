@@ -1,0 +1,341 @@
+{
+  "metadata": {
+    "start_time": "2026-10-14T11:10:43.606030",
+    "end_time": "2026-10-14T11:10:43.612023",
+    "duration_seconds": 0.005993,
+    "assessment_type": "initial_passive_api_security_assessment",
+    "scope_file": "scopes/verified-scope.json"
+  },
+  "api_inventory": {
+    "total_authorized_apis": 171,
+    "inventoried_apis": 43,
+    "apis": [
+      {
+        "endpoint": "api.mercadopago.com",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "api.mercadolibre.com",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "logistica.redelcom.cl",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "www.mercadolibre.co.cr",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "www.mercadolibre.com.bo",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "www.mercadolibre.com.do",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "www.mercadolibre.com.ec",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "www.mercadolibre.com.gt",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "www.mercadolibre.com.hn",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "www.mercadolibre.com.ni",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "www.mercadolibre.com.pa",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "www.mercadolibre.com.py",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "www.mercadolibre.com.sv",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "www.mercadolivre.com",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "www.mercadopago.com.ec",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "wow-int.mercadolibre.com",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": false,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "biolibre.ar",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "biolibre.cl",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "biolibre.co",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "biolibre.mx",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "biolivre.com.br",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "meliplay.com.ar",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "meliplay.com.pe",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "meliplay.com.uy",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "mercadoplay.co",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "mercadoplay.com.pe",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "mercadoplay.com.uy",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "mercadoplay.pe",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.606030"
+      },
+      {
+        "endpoint": "mercadoplay.uy",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.607025"
+      },
+      {
+        "endpoint": "portalinmobiliario.cl",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.607025"
+      },
+      {
+        "endpoint": "portalinmobiliario.com",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.607025"
+      },
+      {
+        "endpoint": "tucarro.com",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.607025"
+      },
+      {
+        "endpoint": "tucarro.com.co",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.607025"
+      },
+      {
+        "endpoint": "tumoto.com",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.607025"
+      },
+      {
+        "endpoint": "furycloud.io",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.607025"
+      },
+      {
+        "endpoint": "furydocs.io",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.607025"
+      },
+      {
+        "endpoint": "sustentabilidadmercadolibre.com/",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.607025"
+      },
+      {
+        "endpoint": "mercadoenvios.com.ve",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": false,
+        "inventory_time": "2026-10-14T11:10:43.607025"
+      },
+      {
+        "endpoint": "mercadopago.com.ve",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.607025"
+      },
+      {
+        "endpoint": "mpago.li",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.607025"
+      },
+      {
+        "endpoint": "mpago.la",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.607025"
+      },
+      {
+        "endpoint": "mercadobackoffice.com",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": true,
+        "inventory_time": "2026-10-14T11:10:43.607025"
+      },
+      {
+        "endpoint": "www.ipbooster.com",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "bounty_eligible": false,
+        "inventory_time": "2026-10-14T11:10:43.607025"
+      }
+    ]
+  },
+  "documentation_review": {
+    "sites_checked": 0,
+    "accessible_sites": 0,
+    "references": []
+  },
+  "endpoint_probing": {
+    "endpoints_tested": 10,
+    "responsive_endpoints": [],
+    "security_headers": {},
+    "auth_indicators": {},
+    "technology_clues": {}
+  },
+  "findings_summary": {
+    "total_apis_discovered": 43,
+    "documentation_sites_found": 0,
+    "responsive_endpoints": 0,
+    "assessment_complete": true
+  },
+  "next_steps_recommendations": [
+    "Review discovered APIs for authentication mechanisms",
+    "Check public documentation for API specifications and rate limits",
+    "Consider authorized active testing with proper test accounts",
+    "Validate findings through scope checker before any active testing",
+    "Proceed to authentication and authorization testing phases if authorized"
+  ]
+}

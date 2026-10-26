@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "last_updated": "2026-10-13",
+  "findings": [],
+  "metadata": {
+    "total_findings": 0,
+    "findings_by_status": {
+      "INFORMATIONAL": 0,
+      "RESEARCH_LEAD": 0,
+      "POTENTIAL_SECURITY_ISSUE": 0,
+      "CONFIRMED_VULNERABILITY": 0,
+      "OUT_OF_SCOPE": 0,
+      "REJECTED": 0
+    },
+    "scope_validation_notes": "All findings must be validated against scopes/verified-scope.json before status progression",
+    "authorization_requirements": "Explicit authorization required for status progression beyond RESEARCH_LEAD"
+  }
+}

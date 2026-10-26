@@ -1,0 +1,149 @@
+{
+  "metadata": {
+    "start_time": "2026-10-13T15:24:55.789643",
+    "end_time": "2026-10-13T15:24:55.796644",
+    "duration_seconds": 0.007001,
+    "assessment_type": "initial_passive_payment_security_assessment",
+    "scope_file": "scopes/verified-scope.json"
+  },
+  "payment_endpoint_inventory": {
+    "total_authorized_payment_endpoints": 5,
+    "inventoried_payment_endpoints": 5,
+    "total_sandbox_candidates": 6,
+    "inventoried_sandbox_candidates": 6,
+    "endpoints": [
+      {
+        "endpoint": "api.mercadopago.com",
+        "endpoint_type": "api_endpoint",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "is_sandbox_candidate": false,
+        "inventory_time": "2026-10-13T15:24:55.789643",
+        "suspected_payment_type": "Mercado Pago Integration"
+      },
+      {
+        "endpoint": "www.mercadopago.com.ec",
+        "endpoint_type": "api_endpoint",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "is_sandbox_candidate": false,
+        "inventory_time": "2026-10-13T15:24:55.790644",
+        "suspected_payment_type": "Mercado Pago Integration"
+      },
+      {
+        "endpoint": "mercadopago.com.ve",
+        "endpoint_type": "api_endpoint",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "is_sandbox_candidate": false,
+        "inventory_time": "2026-10-13T15:24:55.790644",
+        "suspected_payment_type": "Mercado Pago Integration"
+      },
+      {
+        "endpoint": "mpago.li",
+        "endpoint_type": "api_endpoint",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "is_sandbox_candidate": false,
+        "inventory_time": "2026-10-13T15:24:55.790644",
+        "suspected_payment_type": "Mercado Pago Integration"
+      },
+      {
+        "endpoint": "mpago.la",
+        "endpoint_type": "api_endpoint",
+        "discovered_via": "scope_validation",
+        "authorized": true,
+        "is_sandbox_candidate": false,
+        "inventory_time": "2026-10-13T15:24:55.790644",
+        "suspected_payment_type": "Mercado Pago Integration"
+      },
+      {
+        "endpoint": "api.test.mercadopago.com",
+        "endpoint_type": "sandbox_candidate",
+        "discovered_via": "sandbox_preparation",
+        "authorized": false,
+        "is_sandbox_candidate": true,
+        "inventory_time": "2026-10-13T15:24:55.790644",
+        "suspected_payment_type": "Mercado Pago Integration",
+        "note": "Sandbox candidate - requires explicit authorization for testing"
+      },
+      {
+        "endpoint": "test.mercadopago.com.ve",
+        "endpoint_type": "sandbox_candidate",
+        "discovered_via": "sandbox_preparation",
+        "authorized": false,
+        "is_sandbox_candidate": true,
+        "inventory_time": "2026-10-13T15:24:55.790644",
+        "suspected_payment_type": "Mercado Pago Integration",
+        "note": "Sandbox candidate - requires explicit authorization for testing"
+      },
+      {
+        "endpoint": "www.test.mercadopago.com.ec",
+        "endpoint_type": "sandbox_candidate",
+        "discovered_via": "sandbox_preparation",
+        "authorized": false,
+        "is_sandbox_candidate": true,
+        "inventory_time": "2026-10-13T15:24:55.790644",
+        "suspected_payment_type": "Mercado Pago Integration",
+        "note": "Sandbox candidate - requires explicit authorization for testing"
+      },
+      {
+        "endpoint": "api.sandbox.mercadopago.com",
+        "endpoint_type": "sandbox_candidate",
+        "discovered_via": "sandbox_preparation",
+        "authorized": false,
+        "is_sandbox_candidate": true,
+        "inventory_time": "2026-10-13T15:24:55.790644",
+        "suspected_payment_type": "Mercado Pago Integration",
+        "note": "Sandbox candidate - requires explicit authorization for testing"
+      },
+      {
+        "endpoint": "www.sandbox.mercadopago.com.ec",
+        "endpoint_type": "sandbox_candidate",
+        "discovered_via": "sandbox_preparation",
+        "authorized": false,
+        "is_sandbox_candidate": true,
+        "inventory_time": "2026-10-13T15:24:55.790644",
+        "suspected_payment_type": "Mercado Pago Integration",
+        "note": "Sandbox candidate - requires explicit authorization for testing"
+      },
+      {
+        "endpoint": "sandbox.mercadopago.com.ve",
+        "endpoint_type": "sandbox_candidate",
+        "discovered_via": "sandbox_preparation",
+        "authorized": false,
+        "is_sandbox_candidate": true,
+        "inventory_time": "2026-10-13T15:24:55.790644",
+        "suspected_payment_type": "Mercado Pago Integration",
+        "note": "Sandbox candidate - requires explicit authorization for testing"
+      }
+    ]
+  },
+  "documentation_review": {
+    "sites_checked": 0,
+    "accessible_sites": 0,
+    "references": []
+  },
+  "endpoint_probing": {
+    "endpoints_tested": 5,
+    "responsive_endpoints": [],
+    "payment_patterns_found": {},
+    "security_features": {},
+    "payment_flow_indicators": {},
+    "sandbox_candidates_checked": 0
+  },
+  "findings_summary": {
+    "total_payment_endpoints_discovered": 5,
+    "total_sandbox_candidates_identified": 6,
+    "documentation_sites_found": 0,
+    "responsive_endpoints": 0,
+    "assessment_complete": true
+  },
+  "next_steps_recommendations": [
+    "Review discovered payment endpoints for payment flow patterns",
+    "Check public documentation for payment specifications and security features",
+    "Obtain explicit authorization for sandbox/test environment testing",
+    "Configure explicit test accounts and credentials (obtain from program directly)",
+    "Proceed to active payment security testing ONLY in authorized sandbox/test environments"
+  ]
+}

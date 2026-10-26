@@ -1,0 +1,177 @@
+{
+  "gate_metadata": {
+    "gate_version": "1.0.0",
+    "created_date": "2026-10-13",
+    "last_updated": "2026-10-13",
+    "gate_status": "DISABLED",
+    "policy_source": "https://hackerone.com/mercadolibre/policy_scopes",
+    "policy_retrieval_date": "2026-10-12",
+    "policy_version": "UNKNOWN",
+    "policy_last_updated": "UNKNOWN",
+    "export_timestamp": "2026-10-12 09:20:12 UTC"
+  },
+  "authorization_settings": {
+    "production_testing_enabled": false,
+    "human_approval_required": true,
+    "human_approval_status": "PENDING",
+    "scope_validation_required": true,
+    "default_deny_position": true,
+    "explicit_authorization_required": true
+  },
+  "testing_permissions": {
+    "permitted_testing_techniques": [
+      "UNKNOWN"
+    ],
+    "prohibited_testing_techniques": [
+      "UNKNOWN"
+    ],
+    "permitted_testing_types": [
+      "PASSIVE_RECONNAISSANCE",
+      "DOCUMENTATION_REVIEW",
+      "PUBLIC_SOURCE_ANALYSIS"
+    ],
+    "prohibited_in_production": [
+      "ACTIVE_SCANNING",
+      "BRUTE_FORCE",
+      "CREDENTIAL_TESTING",
+      "INJECTION_TESTING",
+      "FUZZING",
+      "EXPLOITATION_ATTEMPTS",
+      "DENIAL_OF_SERVICE",
+      "SOCIAL_ENGINEERING",
+      "PAYMENT_TESTING",
+      "TRANSACTION_TESTING",
+      "AUTHENTICATION_BYPASS",
+      "SESSION_HIJACKING",
+      "PRIVILEGE_ESCALATION",
+      "IDOR_TESTING",
+      "API_ABUSE",
+      "WEBHOOK_TESTING"
+    ]
+  },
+  "rate_limits_and_automation": {
+    "rate_limits": "UNKNOWN",
+    "automation_restrictions": "UNKNOWN",
+    "approved_tools": "UNKNOWN",
+    "prohibited_tools": "UNKNOWN",
+    "requests_per_minute": "UNKNOWN",
+    "concurrent_connections": "UNKNOWN",
+    "burst_allowance": "UNKNOWN",
+    "backoff_requirements": "UNKNOWN"
+  },
+  "account_and_credentials": {
+    "test_accounts_required": true,
+    "provided_test_accounts": "UNKNOWN",
+    "test_credit_cards_required": true,
+    "provided_test_instruments": "UNKNOWN",
+    "authentication_testing_allowed": false,
+    "credential_testing_allowed": false,
+    "multi_factor_testing_allowed": "UNKNOWN",
+    "password_testing_allowed": "UNKNOWN",
+    "session_testing_allowed": "UNKNOWN",
+    "account_creation_allowed": "UNKNOWN",
+    "account_deletion_allowed": "UNKNOWN",
+    "privilege_escalation_via_accounts": "UNKNOWN"
+  },
+  "data_handling_and_privacy": {
+    "sensitive_data_collection": "PROHIBITED",
+    "personal_data_retention": "PROHIBITED",
+    "credential_storage": "PROHIBITED",
+    "payment_data_handling": "PROHIBITED_IN_PRODUCTION",
+    "data_transmission_restrictions": "ENCRYPTED_ONLY",
+    "logs_and_evidence_retention": "TEMPORARY_ONLY",
+    "third_party_sharing": "PROHIBITED_WITHOUT_APPROVAL",
+    "public_disclosure_restrictions": "COORDINATED_ONLY",
+    "vulnerability_details_handling": "LIMITED_DISTRIBUTION"
+  },
+  "sandbox_and_test_environments": {
+    "sandbox_testing_allowed": false,
+    "sandbox_environments_authorized": [],
+    "test_environment_requirements": "UNKNOWN",
+    "isolation_requirements": "UNKNOWN",
+    "data_reset_procedures": "UNKNOWN",
+    "environment_specific_credentials": "UNKNOWN",
+    "sandbox_indicators_required": true,
+    "production_impact_prohibited": true
+  },
+  "payment_specific_restrictions": {
+    "payment_testing_in_production": "STRICTLY_PROHIBITED",
+    "real_financial_transactions": "STRICTLY_PROHIBITED",
+    "test_instrument_requirements": "EXPLICITLY_PROVIDED_ONLY",
+    "transaction_amount_limits": "UNKNOWN",
+    "currency_testing_restrictions": "UNKNOWN",
+    "refund_testing_restrictions": "UNKNOWN",
+    "dispute_processing_testing": "UNKNOWN",
+    "webhook_testing_requirements": "EXPLICIT_AUTHORIZATION_REQUIRED",
+    "tokenization_testing": "UNKNOWN",
+    "duplicate_transaction_testing": "UNKNOWN"
+  },
+  "vulnerability_specific_rules": {
+    "accepted_categories": "UNKNOWN",
+    "excluded_categories": "UNKNOWN",
+    "special_consideration_required": "UNKNOWN",
+    "bounty_eligibility_criteria": "UNKNOWN",
+    "severity_requirements": "UNKNOWN",
+    "cvss_requirements": "UNKNOWN",
+    "duplicate_report_policy": "UNKNOWN",
+    "reward_structure": "UNKNOWN",
+    "payout_conditions": "UNKNOWN"
+  },
+  "environment_mappings": {
+    "mappings": {
+      "api.mercadolibre.com": "PRODUCTION",
+      "api.sandbox.mercadolibre.com": "SANDBOX",
+      "api.staging.mercadolibre.com": "STAGING",
+      "*.mercadolibre.com": "PRODUCTION",
+      "*.sandbox.mercadolibre.com": "SANDBOX"
+    },
+    "default_environment": "UNKNOWN",
+    "validation_required": true
+  },
+  "trusted_public_keys": {
+    "mlb-test-key-001": "base64encodedtestpublickey12345678901234567890123456789012",
+    "mlb-test-key-002": "base64encodedtestpublickey09876543210987654321098765432109",
+    "human-approver-key-001": "base64encodedhumanapproverkey11111111111111111111111111111111"
+  },
+  "trusted_checkpoint_keys": {
+    "checkpoint-test-key-001": "base64encodedcheckpointtestkey12345678901234567890123456789012"
+  },
+  "compliance_and_reporting": {
+    "disclosure_timelines": "UNKNOWN",
+    "coordinated_disclosure_required": true,
+    "initial_report_window": "UNKNOWN",
+    "extension_request_process": "UNKNOWN",
+    "rejection_appeal_process": "UNKNOWN",
+    "bounty_claim_procedures": "UNKNOWN",
+    "public_disclosure_permissions": "UNKNOWN",
+    "legal_notice_requirements": "UNKNOWN",
+    "safe_harbor_provisions": "UNKNOWN",
+    "confidentiality_requirements": "UNKNOWN"
+  },
+  "validation_and_verification": {
+    "scope_check_required_before_testing": true,
+    "authorization_revalidation_period": "UNKNOWN",
+    "policy_update_monitoring": "MONTHLY",
+    "evidence_requirements": "COMPREHENSIVE",
+    "false_positive_assessment_required": true,
+    "reproducibility_required": true,
+    "impact_assessment_required": true,
+    "remediation_recommendations_required": true,
+    "human_review_before_submission": true
+  },
+  "notes_and_limitations": [
+    "This authorization gate defaults to DISABLED state",
+    "All unknown fields reflect missing information from the official CSV export",
+    "Production testing is explicitly disabled",
+    "Human approval is required before any status change from DISABLED",
+    "Scope validation must be performed before any interaction with targets",
+    "Passive reconnaissance is the only permitted initial activity",
+    "Explicit authorization required for transition to active testing phases",
+    "Payment testing restricted to sandbox/test environments only",
+    "Do not infer permissions beyond explicitly stated authorizations",
+    "Cryptographic verification uses test keys for offline testing only",
+    "Trusted public keys must be provided by authorized program policy in production",
+    "Trusted checkpoint keys are used for audit integrity verification and must be protected separately from authorization keys",
+    "Checkpoint signing uses separate keys from authorization signing to maintain separation of concerns"
+  ]
+}

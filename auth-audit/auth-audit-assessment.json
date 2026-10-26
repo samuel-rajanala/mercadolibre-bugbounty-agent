@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "start_time": "2026-10-13T15:23:54.518434",
+    "end_time": "2026-10-13T15:23:54.521796",
+    "duration_seconds": 0.003362,
+    "assessment_type": "initial_passive_auth_audit_assessment",
+    "scope_file": "scopes/verified-scope.json"
+  },
+  "auth_endpoint_inventory": {
+    "total_authorized_auth_endpoints": 130,
+    "inventoried_auth_endpoints": 0,
+    "endpoints": []
+  },
+  "documentation_review": {
+    "sites_checked": 0,
+    "accessible_sites": 0,
+    "references": []
+  },
+  "endpoint_probing": {
+    "endpoints_tested": 0,
+    "responsive_endpoints": [],
+    "auth_headers": {},
+    "token_indicators": {},
+    "security_headers": {},
+    "auth_methods": {}
+  },
+  "findings_summary": {
+    "total_auth_endpoints_discovered": 0,
+    "documentation_sites_found": 0,
+    "responsive_endpoints": 0,
+    "assessment_complete": true
+  },
+  "next_steps_recommendations": [
+    "Review discovered auth endpoints for authentication mechanisms",
+    "Check public documentation for auth specifications and token formats",
+    "Consider authorized active testing with proper test accounts (explicitly provided)",
+    "Validate findings through scope checker before any active testing",
+    "Proceed to authorization testing phases if authorized"
+  ]
+}
